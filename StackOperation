@@ -1,0 +1,74 @@
+#include<iostream>
+#include<conio.h>
+using namespace std;
+//unlimiterd stack
+//afno method
+class storage{
+int cell[10];
+int pointer;
+public:
+    storage(){
+    pointer=0;
+    }
+void push(int x){
+if(pointer<=9){
+cell[pointer]=x;
+cout<<"Has been placed in stacked:"<<cell[pointer]<<endl;
+pointer++;
+}
+else{
+cout<<"storage Full"<<endl;
+}
+}
+
+void pop(){
+if(pointer>0){
+    cout<<"This element was removed:"<<cell[pointer]<<endl;
+pointer--;
+}
+else{
+ pointer--;
+ if(pointer==0){
+        cout<<"stack is now empty"<<endl;
+}
+else{
+    cout<<"stack is already empty"<<endl;
+    pointer = 0;
+}
+}
+}
+void display(){
+int i;
+cout<<"the stack"<<endl;
+for(i=0;i<pointer;i++){
+cout<<cell[i]<<endl;
+}
+}
+};
+
+int main(){
+storage s;
+s.pop();
+s.push(4);
+s.push(5);
+s.push(10);
+s.push(5);
+s.push(9);
+s.push(8);
+s.push(4);
+s.push(54);
+s.push(10);
+s.push(15);
+s.push(40);
+s.push(59);
+s.push(1);
+s.push(57);
+s.push(42);
+s.push(81);
+s.pop();
+s.push(100);
+s.display();
+getch();
+return 0;
+}
+
