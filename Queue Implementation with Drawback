@@ -1,0 +1,69 @@
+#include <iostream>
+#include<conio.h>
+#define m 10
+using namespace std;
+
+class Q{
+char Queue[m];
+int f;
+int r;
+public:
+        Q()
+        {
+        f=0;//first Element of Queue
+        r=-1;//this is the actual index of Queue
+        }
+        void enqueue(char val)
+            {
+                if(r<m)
+                    {
+                Queue[++r]=val;
+                }
+                else
+                    {cout<<"Queue is Full"<<endl;}
+            }
+        void dequeue()  {
+                        if(r==-1)
+                            {cout<<"Queue is Empty"<<endl;}
+                        else{f++;}
+                        }
+        void display()
+                {
+                    for(int i=f;i<=r;i++){
+                        cout<<Queue[i]<<endl;
+                    }
+                }
+};
+int main()
+{
+   Q q;
+    q.enqueue('5');
+    q.enqueue('9');
+    q.enqueue('1');
+    q.enqueue('A');
+    q.enqueue('e');
+    q.enqueue('7');
+    q.enqueue('t');
+    q.enqueue('y');
+    q.enqueue('O');
+    q.enqueue('q');
+    q.display();
+    cout<<"After Clearing the Queue A drawback is seen ie since F moved as well need to do shifting to fix this"<<endl;
+    q.dequeue();
+    q.dequeue();
+    q.dequeue();
+    q.dequeue();
+    q.dequeue();
+    q.dequeue();
+    q.dequeue();
+    q.dequeue();
+    q.dequeue();
+    q.dequeue();//Even after Emptying not able to add more elements so circular queue is needed
+    q.enqueue('H');
+    q.enqueue('p');
+    q.enqueue('E');
+    q.enqueue('H');
+    q.enqueue('p');
+    q.enqueue('E');
+
+    }
