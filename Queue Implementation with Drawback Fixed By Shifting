@@ -1,0 +1,81 @@
+#include <iostream>
+#include<conio.h>
+#define m 10
+using namespace std;
+
+class Q{
+char Queue[m];
+int f;//f is maintained as 0 in shifting queue.
+int r;
+public:
+        Q()
+        {
+        f=0;//first Element of Queue
+        r=-1;//this is the actual index of Queue
+        }
+        void enqueue(char val)
+            {
+                if(r<m)
+                    {
+                Queue[++r]=val;
+                }
+                else
+                    {cout<<"Queue is Full"<<endl;}
+            }
+        void dequeue()  {
+
+                        if(r==-1)
+                            {cout<<"Queue is Empty"<<endl;}
+                        else{
+                            for(int i=0;i<=r-1;i++){
+                                Queue[i]=Queue[i+1];
+                            }
+                            r--;
+                            }//shifting
+                        }
+        void display()
+                {
+                    for(int i=f;i<=r;i++){
+                        cout<<Queue[i]<<endl;
+                    }
+                }
+};
+int main()
+{
+   Q q;
+    q.enqueue('5');
+    q.enqueue('9');
+    q.enqueue('1');
+    q.enqueue('A');
+    q.enqueue('e');
+    q.enqueue('7');
+    q.enqueue('t');
+    q.enqueue('y');
+    q.enqueue('O');
+    q.enqueue('q');
+    q.display();
+    cout<<"Dequening all and shifting all:"<<endl;
+    q.dequeue();
+    q.dequeue();
+    q.dequeue();
+    q.dequeue();
+    q.dequeue();
+    q.dequeue();
+    q.dequeue();
+    q.dequeue();
+    q.dequeue();
+    q.dequeue();//Due to shifting  we dont have to do F++ so out first index isn lost
+    q.enqueue('H');
+    q.enqueue('p');
+    q.enqueue('E');
+    q.enqueue('q');
+    q.enqueue('r');
+    q.enqueue('T');
+    q.enqueue('g');
+    q.enqueue('U');
+    q.enqueue('o');
+    q.enqueue('i');
+
+    q.display();
+
+    }
