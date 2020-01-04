@@ -48,14 +48,14 @@ public:
         for(int i=0;i<f;i++){
             cout<<stk[i];
         }
-
+        cout<<endl;
         }
 };
 int main()
 {
     Q q;
-
-    // Enter your Queue instructions here
+    //q.enqueue('X')
+    //q.dequeue()  operations here.
     q.display();
     return 0;
 }
