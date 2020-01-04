@@ -1,0 +1,60 @@
+#include <iostream>
+#include<conio.h>
+#define m 7
+using namespace std;
+class Q{
+char stk[m];
+int r;
+int f;
+public:
+    Q(){
+        for(int i=0;i<m;i++)
+            {
+            stk[i]=NULL;
+            }
+            r=0;
+            f=0;
+    }
+    void enqueue(char v){
+        if(r==7){
+            r=0;
+        }
+        if(stk[r]==NULL)
+            {
+            stk[r]=v;
+            r++;
+            }
+        else{
+        cout<<"Queue is full"<<endl;
+        }
+
+    }
+    void dequeue(){
+    if(f==7){
+        f=0;
+    }
+    if(f==r && stk[f]==NULL){
+      cout<<"Queue Empty"<<endl;
+    }
+    else{
+    stk[f]=NULL;
+    f++;
+    }
+    }
+    void display(){
+        for(int i=f;i<m;i++){
+                cout<<stk[i];
+            }
+        for(int i=0;i<f;i++){
+            cout<<stk[i];
+        }
+
+        }
+};
+int main()
+{
+    Q q;
+    // Enter your Queue instructions here
+    q.display();
+    return 0;
+}
