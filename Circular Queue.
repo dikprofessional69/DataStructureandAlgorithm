@@ -33,7 +33,7 @@ public:
     if(f==7){
         f=0;
     }
-    if(f==r && stk[f]==NULL){
+    if(stk[f]==NULL){
       cout<<"Queue Empty"<<endl;
     }
     else{
@@ -54,6 +54,7 @@ public:
 int main()
 {
     Q q;
+
     // Enter your Queue instructions here
     q.display();
     return 0;
