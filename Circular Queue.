@@ -1,6 +1,6 @@
 #include <iostream>
 #include<conio.h>
-#define m 7
+#define m 10
 using namespace std;
 class Q{
 char stk[m];
@@ -16,7 +16,7 @@ public:
             f=0;
     }
     void enqueue(char v){
-        if(r==7){
+        if(r==m){
             r=0;
         }
         if(stk[r]==NULL)
@@ -30,7 +30,7 @@ public:
 
     }
     void dequeue(){
-    if(f==7){
+    if(f==m){
         f=0;
     }
     if(stk[f]==NULL){
@@ -43,9 +43,16 @@ public:
     }
     void display(){
         for(int i=f;i<m;i++){
+                if(stk[i]==NULL){
+                break;
+                }
                 cout<<stk[i];
+
             }
         for(int i=0;i<f;i++){
+                 if(stk[i]==NULL){
+                break;
+                }
             cout<<stk[i];
         }
         cout<<endl;
@@ -54,7 +61,8 @@ public:
 int main()
 {
     Q q;
-    //q.enqueue('X')
+  
+    //q.enqueue('a single character no double digits');
     //q.dequeue()  operations here.
     q.display();
     return 0;
