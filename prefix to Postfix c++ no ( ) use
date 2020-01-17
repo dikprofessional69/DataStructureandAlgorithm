@@ -1,0 +1,123 @@
+#include <iostream>
+#include <string.h>
+
+using namespace std;
+class Convert
+        {
+
+        char stk[100];
+        char str[100];
+        string prefix;
+        int stkindex;
+        int strindex;
+        int stkremoved;
+        int p;//precedence
+
+    public:
+        Convert(){
+
+         stkindex=-1;
+         strindex=0;
+         stkremoved=-1;
+        }
+        int precedence(char c){
+            if(c=='+' || c=='-'){
+               return 1;
+            }
+            if(c=='*' || c=='/'){
+                return 2;
+            }
+        }
+        void check(char s)
+            {
+
+            //check character or operator
+
+                    if((s>64 && s<91)||(s>96 && s<123))
+                        {
+                            str[strindex]=s;
+
+                            strindex++;
+                        }
+
+                    else
+                      {   p=precedence(s);
+                            if(stkindex==-1)
+                            {
+                            stk[0]=s;
+                            stkindex++;
+                            }
+                            else
+                                {
+                                for(int i=stkindex;i>=0;--i)//0
+                                    {
+                                        if(p<=precedence(stk[i]))
+                                            {
+                                                str[strindex]=stk[i];
+                                                strindex++;
+                                                stkindex--;
+
+                                            }
+
+                                    }
+
+                                stk[++stkindex]=s;
+
+
+                                }
+                        }
+
+            }
+
+
+
+        void getPrefix(){
+        cin>>prefix;
+        for(int i=0;i<prefix.length();i++){
+                    check(prefix[i]);
+                    }
+                     while(stkindex>-1)
+            {
+                str[strindex++]=stk[stkindex--];
+
+            }
+
+
+
+
+
+
+        }
+        void prefixDisplay()
+        {
+            int i=0;
+    while(i!=strindex)
+            {
+                cout<<str[i];
+
+            i++;
+            }
+
+        cout<<endl<<"stk content:"<<endl;
+          while(stkindex>-1)
+            {
+                cout<<stk[stkindex--];
+            }
+
+
+        }
+
+
+
+        };
+
+int main()
+{
+    Convert convert;
+
+    cout << "Enter a prefix String:" << endl;
+    convert.getPrefix();
+    convert.prefixDisplay();
+
+    return 0;
+}
